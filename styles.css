@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color: #d6d6d6;
+  --bg: #131314;
+  --btns-bg: #131314c4;
+  --border: 1px solid #4d4d4d;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--color);
+}
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 0.7em;
+  font-family: "Outfit", sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.slider {
+  width: 70vw;
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1em;
+  border: var(--border);
+  position: relative;
+  box-sizing: content-box;
+  box-shadow: 0 0 20px #252525;
+}
+
+.slider .btns-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  top: 50%;
+  translate: 0 -50%;
+  padding: 0 1em;
+}
+
+.slider .imgs-list {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  transition: left 0.5s ease-in-out;
+}
+
+.imgs-list img {
+  object-fit: cover;
+}
+
+.btns-container .btn {
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: var(--border);
+  background-color: var(--btns-bg);
+  color: var(--color);
+  font-size: 1.7rem;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: scale 0.3s ease;
+}
+
+.btns-container .btn:active {
+  scale: 0.8;
+}
+
+.dots-container {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  list-style: none;
+  margin-top: 0.5em;
+}
+
+.dots-container .dot-margin {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dots-container .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #adadad;
+  background-color: transparent;
+  transition: background-color 1s ease, scale 0.3s linear;
+  margin: 0.5em;
+}
+
+.dot.active {
+  border: none;
+  background-color: #e0e0e0;
+  scale: 1.3;
+}
+
+.dot-margin:hover .dot:not(.active) {
+  background-color: #e0e0e060;
+  scale: 1.3;
+}
+
+@media screen and (max-width: 610px) {
+  .main {
+    padding: 5% 10%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .slider {
+    width: 100%;
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main {
+    padding-top: 15%;
+    padding-bottom: 15%;
+  }
+}
